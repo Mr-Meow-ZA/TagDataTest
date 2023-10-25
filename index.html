@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Your Firebase Web App</title>
+  <!-- Add Firebase SDKs for products you want to use -->
+  <!-- For this example, we'll use Firebase Realtime Database -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBNhweNe3mMlzJnv6GQj5DQW9MW4PIZFz8",
+      authDomain: "appsource-mikrotik.firebaseapp.com",
+      databaseURL: "https://appsource-mikrotik-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "appsource-mikrotik",
+      storageBucket: "appsource-mikrotik.appspot.com",
+      messagingSenderId: "622932350915",
+      appId: "1:622932350915:web:2224967bc5bf21e053cf76",
+      measurementId: "G-CN1122N3E6"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    // Reference to the Realtime Database
+    const db = getDatabase(app);
+
+    // Reference to the "bleTags" path in your database
+    const bleTagsRef = ref(db, "bleTags");
+
+    // Get data from the database
+    onValue(bleTagsRef, (snapshot) => {
+      const databaseData = snapshot.val();
+      // Display the data on the web page
+      displayData(databaseData);
+    });
+
+    // Function to display data on the web page
+    function displayData(data) {
+      const databaseDataElement = document.getElementById("databaseData");
+      databaseDataElement.innerHTML = "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Firebase Realtime Database Viewer</h1>
+  <div id="databaseData">
+    <!-- Database data will be displayed here -->
+  </div>
+</body>
+
+</html>
