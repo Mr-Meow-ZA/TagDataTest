@@ -1,0 +1,15 @@
+{
+  "name": "Love You Most +1 — Rapha & Minette",
+  "short_name": "Most +1",
+  "description": "Rapha and Minette's private shared little universe.",
+  "start_url": "./#home",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fffaf1",
+  "theme_color": "#153a31",
+  "categories": ["lifestyle", "entertainment"],
+  "icons": [
+    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
