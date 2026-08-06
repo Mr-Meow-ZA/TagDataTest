@@ -10,7 +10,7 @@ This branch contains the redesigned application shell and the initial Supabase s
 
 1. Copy `.env.example` to `.env.local`.
 2. Create a Supabase project.
-3. Run `supabase/migrations/001_initial_schema.sql` through migrations.
+3. Apply `supabase/migrations/001_initial_schema.sql`.
 4. Add the Supabase URL and anon key to `.env.local`.
 5. Run `npm install` and `npm run dev`.
 
@@ -26,6 +26,6 @@ This branch contains the redesigned application shell and the initial Supabase s
 ## Promotion rules
 
 - Keep the existing Love Hub live until the V2 preview is approved.
-- Do not merge real Supabase credentials.
+- Do not commit real Supabase credentials.
 - Test both authorised accounts and a non-member account before production.
 - Export legacy content before replacing the old site.
