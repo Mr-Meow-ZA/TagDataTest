@@ -1,6 +1,19 @@
 name: Love Hub v2 CI
 
 on:
+  push:
+    branches:
+      - 'agent/love-hub-v2-redesign'
+    paths:
+      - 'app/**'
+      - 'lib/**'
+      - 'supabase/**'
+      - 'package.json'
+      - 'tsconfig.json'
+      - 'next.config.ts'
+      - 'proxy.ts'
+      - 'vercel.json'
+      - '.github/workflows/love-hub-v2-ci.yml'
   pull_request:
     paths:
       - 'app/**'
