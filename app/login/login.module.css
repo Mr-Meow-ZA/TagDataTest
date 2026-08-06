@@ -1,0 +1,98 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(222, 236, 227, 0.9), transparent 34%),
+    linear-gradient(180deg, #f8fbf8 0%, #fbf8f1 55%, #f4efe5 100%);
+}
+
+.card {
+  width: min(100%, 440px);
+  padding: 34px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #dfe7e2;
+  box-shadow: 0 24px 70px rgba(18, 60, 47, 0.12);
+}
+
+.mark {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: #123c2f;
+  color: #fff;
+  margin-bottom: 22px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #245c49;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.card h1 {
+  margin: 0;
+  color: #18362d;
+  font-size: clamp(34px, 8vw, 48px);
+  line-height: 1;
+}
+
+.copy {
+  margin: 14px 0 26px;
+  color: #6c7c76;
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+}
+
+.form label {
+  display: grid;
+  gap: 7px;
+  color: #18362d;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid #ccd9d2;
+  border-radius: 14px;
+  background: #fff;
+  color: #18362d;
+  font: inherit;
+}
+
+.form input:focus {
+  outline: 3px solid rgba(36, 92, 73, 0.16);
+  border-color: #245c49;
+}
+
+.form button {
+  min-height: 50px;
+  border: 0;
+  border-radius: 14px;
+  background: #123c2f;
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.error {
+  margin: 0;
+  padding: 11px 13px;
+  border-radius: 12px;
+  background: #fff0ee;
+  color: #8d302c;
+  font-size: 13px;
+}

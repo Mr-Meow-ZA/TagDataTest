@@ -3,7 +3,13 @@ name: Love Hub v2 CI
 on:
   pull_request:
     paths:
-      - 'love-hub-v2/**'
+      - 'app/**'
+      - 'lib/**'
+      - 'supabase/**'
+      - 'package.json'
+      - 'tsconfig.json'
+      - 'next.config.ts'
+      - 'proxy.ts'
       - '.github/workflows/love-hub-v2-ci.yml'
   workflow_dispatch:
 
@@ -13,18 +19,17 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: love-hub-v2
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm
-          cache-dependency-path: love-hub-v2/package.json
+          cache-dependency-path: package.json
       - name: Install dependencies without mutating package metadata
         run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Lint
+        run: npm run lint
       - name: Type-check
         run: npm run typecheck
       - name: Build with safe placeholder environment
