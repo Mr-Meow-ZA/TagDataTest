@@ -10,6 +10,7 @@ on:
       - 'tsconfig.json'
       - 'next.config.ts'
       - 'proxy.ts'
+      - 'vercel.json'
       - '.github/workflows/love-hub-v2-ci.yml'
   workflow_dispatch:
 
