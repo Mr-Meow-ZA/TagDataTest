@@ -64,7 +64,7 @@ export default async function MessagesPage({ searchParams }: MessagesPageProps) 
       <section className="message-layout">
         <aside className="note-inspiration">
           <span className="create-icon"><Heart fill="currentColor" /></span>
-          <p className="eyebrow">TODAY'S OPENING LINE</p>
+          <p className="eyebrow">TODAY’S OPENING LINE</p>
           <blockquote>{promptOfTheDay()}</blockquote>
           <p>Answer it. Ignore it. Write something completely different. The point is simply to say the thing.</p>
         </aside>
