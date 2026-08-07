@@ -16,6 +16,9 @@ create table if not exists public.love_hub_invites (
 create index if not exists love_hub_invites_household_idx
   on public.love_hub_invites(household_id, created_at desc);
 
+create unique index if not exists love_hub_members_one_household_per_user_idx
+  on public.love_hub_members(user_id);
+
 alter table public.love_hub_invites enable row level security;
 
 drop policy if exists "love hub owners read invites" on public.love_hub_invites;
@@ -83,6 +86,14 @@ begin
     raise exception 'Choose a display name between 1 and 80 characters.';
   end if;
 
+  if exists (
+    select 1
+    from public.love_hub_members
+    where user_id = auth.uid()
+  ) then
+    raise exception 'This account already belongs to a Love Hub household.';
+  end if;
+
   select *
   into invite_record
   from public.love_hub_invites
@@ -106,9 +117,7 @@ begin
     auth.uid(),
     clean_name,
     'member'
-  )
-  on conflict (household_id, user_id)
-  do update set display_name = excluded.display_name;
+  );
 
   update public.love_hub_invites
   set
